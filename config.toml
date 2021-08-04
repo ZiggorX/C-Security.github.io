@@ -4,6 +4,8 @@ theme = "anatole"
 
 [params]
 
-title = "Blog.A-1"
+title = "Cyber Security blog: By Ziggor"
 author = "AEC"
-description = "Init commit"
+description = "Vmricdb sw se gzqd, azozc fm mgxzp addkrcgjdvz."
+profilePicture = "images/profilepic.jpg"
+mainSections = ["Blog"]
