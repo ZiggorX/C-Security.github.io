@@ -1,0 +1,9 @@
+baseURL = "https://ZiggorX.github.io/"
+languageCode = "en-gb"
+theme = "anatole"
+
+[params]
+
+title = "Blog.A-1"
+author = "AEC"
+description = "Init commit"
