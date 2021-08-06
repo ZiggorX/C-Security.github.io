@@ -1,5 +1,5 @@
 ---
-title: "Social Engineering and Reconnaisance (Unformatted)"
+title: "Social Engineering and Reconnaisance"
 date: 2021-08-04T15:01:29+01:00
 ---
 
