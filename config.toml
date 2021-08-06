@@ -8,4 +8,35 @@ title = "Cyber Security blog: By Ziggor"
 author = "AEC"
 description = "Vmricdb sw se gzqd, azozc fm mgxzp addkrcgjdvz."
 profilePicture = "images/profilepic.jpg"
-mainSections = ["Blog"]
+
+[menu]
+
+  [[menu.main]]
+  name = "Home"
+  identifier = "home"
+  weight = 100
+  url = "/"
+
+  [[menu.main]]
+  name = "Articles"
+  weight = 200
+  identifier = "articles"
+  url = "/articles/"
+
+  [[menu.main]]
+  name = "Tutorials"
+  weight = 300
+  identifier = "tutorials"
+  url = "/tutorials/"
+
+  [[menu.main]]
+  name = "About"
+  weight = 400
+  identifier = "about"
+  url = "/about/"
+
+  [[menu.main]]
+  name = "Uni projects"
+  weight = 500
+  identifier = "uniprojects"
+  url = "/uniprojects"
