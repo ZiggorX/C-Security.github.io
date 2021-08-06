@@ -39,4 +39,4 @@ profilePicture = "images/profilepic.jpg"
   name = "Uni projects"
   weight = 500
   identifier = "uniprojects"
-  url = "/uniprojects"
+  url = "/uniprojects/"
