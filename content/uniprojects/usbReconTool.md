@@ -1,5 +1,5 @@
 ---
-title: "USB Malware: 1st year project"
+title: "USB Recon Tool: 1st year project"
 date: 2021-08-06T16:39:46+01:00
 draft: false
 ---
@@ -11,8 +11,6 @@ draft: false
 - [Recon](#Reconnaisance)
 	- [Useful information](#Useful_Information)
 	- [Purpose of information](#Purpose_of_info)
-- Beaglebone technology:
-	- Set up Linux to run
 - [Communication of Data](#Communication_of_data)
 	- [HTTP](#HTTP)
 	- [FTP](#FTP)
@@ -63,7 +61,7 @@ of hardware, software, versions, running processes etc. This information can be 
 the target machine/network.
 
 In windows there is a useful tool known as the 'Event Viewer'. This is where any system events are logged.
-https://www.howtogeek.com/123646/htg-explains-what-the-windows-event-viewer-is-and-how-you-can-use-it/
+> Use this to learn more about event viewer: https://www.howtogeek.com/123646/htg-explains-what-the-windows-event-viewer-is-and-how-you-can-use-it/
 
 Another primary area to look on a windows machine is directly through the command line. There are many commands that
 can be used to pull up system info. Alot of the time this doesnt even need admin privelege to do this.
@@ -150,13 +148,12 @@ Hyper-V Requirements:      VM Monitor Mode Extensions: Yes
                            Data Execution Prevention Available: Yes
 ~~~
 
-> This is one command of many, the output of all our currently planned commands is 8000 lines. This needs to be sorted
-into different areas.
+> This is one command of many, the output of all our currently planned commands is 8000 lines. This needs to be sorted into different areas.
 
-There are many more command obviously, these fall under mainly system and network commands.
-http://www.defenceindepth.net/2009/10/enumerating-windows-information.html
+There are many more commands obviously, these fall under mainly system and network commands.
+> More information on enumerating windows machines can be found here: http://www.defenceindepth.net/2009/10/enumerating-windows-information.html
 
-## Purpose_of_info
+## Purpose of info
 
 The purpose of enumerating information is that we will use it to establish an 'active connection' to the target
 host to discover potential attack vectors within the system
@@ -171,9 +168,6 @@ Enumeration is used to gather the below:
 - Application and banners
 - SNMP and DNS Details
 -----------------------------------
-
-# Beaglebone_Technology:
---------------------------
 # Communication_of_data:
 
 When it comes to communicating the enumerated information (we need to turn it into data) there are many methods within
@@ -188,7 +182,7 @@ transferred from one point to another using the network capabilites of the proto
 When HTTP performs the transfer it used TCP (Transmission control protocol). This protocol is used to manage the channels
 between the browser and the HTTP server being used. 
 
-(I would recommend learning more about TCP) - https://searchnetworking.techtarget.com/definition/TCP
+> (I would recommend learning more about TCP) - https://searchnetworking.techtarget.com/definition/TCP
 
 The main methods used by HTTP are POST, PUT and GET. There are more but I wont talk about them here.
 
@@ -197,7 +191,7 @@ The main methods used by HTTP are POST, PUT and GET. There are more but I wont t
     - Remain in browser history
     - Can be cached
     - Can be bookmarked
-    - Should not be used for dealing with sensetive data !!!!!!!!!__RESEARCH THIS__!!!!!!!!!!!!
+    - Should not be used for dealing with sensetive data
     - Only used to request data (not modify)
 
 - POST:
@@ -233,8 +227,6 @@ Some of the commands that can be used within FTP are:
 - (TO EXIT FTP: bye) Literally just bye.
 
 > Look into these commands more.
-
-## Server
 
 ### FTP_Server_types
 
@@ -346,12 +338,12 @@ In this project annonymous FTP will be disabled as it is very insecure.
 To organise the files we recieve from target machines automatically the best option we have found is Inotify-tools. This is a set of command line programs desgined to interface with Inotify. Inotify is a linux kernal subsystem that recognises changes to a file system and reports that data back to applications.
 
 ~~~bash
-inotifywait -m home/debian/ -e create -e moved_to | # -m (monitor mode) means the script will not end after it has been called once. -e (event) watching for creation and movement of directories.
-    while read path action file; do # Captures output of inotify command and assigns each line to file.
-        if [[ "$file" =~ .*txt$ ]]; then # Does the file end with .txt?
-            python3 /home/debian/strip.py # Run python script
-        fi
-    done
+    inotifywait -m home/debian/ -e create -e moved_to | # -m (monitor mode) means the script will not end after it has been called once. -e (event) watching for creation and movement of directories.
+        while read path action file; do # Captures output of inotify command and assigns each line to file.
+            if [[ "$file" =~ .*txt$ ]]; then # Does the file end with .txt?
+                python3 /home/debian/strip.py # Run python script
+            fi
+        done
 ~~~
 > This is the bash script we place in /usr/bin/
 > Set executable perms with chmod +x
@@ -418,11 +410,6 @@ Mar 15 11:36:02 beaglebone bash[1547]: ftp transfer recieved
 As we can see the service is working correctly and identifying new files on the system.
 
 
-### Commands (Status)
-
-	- ?
-
-### Server-side_permissions
 
 ##### Chroot
 
@@ -495,8 +482,7 @@ As we are looking at windows for this project we should make sure that we unders
 referring to things like (File system, logs, XP Service packs) aswell as comparing to what we already know about the Linux
 system. 
 
-> My research involves heavy references to XP however most of the content is the same for all versions, i will try
-to mention when something is different between OS Versions.
+> My research involves heavy references to XP however most of the content is the same for all versions, i will try to mention when something is different between OS Versions.
 
 ## File_system
 
@@ -504,9 +490,7 @@ Windows XP Professional supports the three major computer file systems of File A
 
 FAT is allocatted in clusters, the size of these clusters is determined by the size of the partition. The larger the partition, the larger the cluster size. The larger cluster size, the more space is required when using it to store data.
 
-A good explanation is here: https://www.mcmcse.com/microsoft/guides/filesystems.shtml
-
-or this video: https://www.youtube.com/watch?v=HjVktRd35G8
+> A good explanation is here: https://www.mcmcse.com/microsoft/guides/filesystems.shtml OR this video: https://www.youtube.com/watch?v=HjVktRd35G8
 
 ## Log_Files
 
@@ -585,8 +569,3 @@ https://www.quora.com/Why-do-people-still-use-Windows-XP
 As we are building a reconaissance app we should make sure that we look into covering our tracks, meaning being stealthy/undetectable forensically. There are many things that come into play when talking about covering tracks, we will look into the main ones for windows.
 https://resources.infosecinstitute.com/covering-tracks-of-attacks/#gref
 https://resources.infosecinstitute.com/penetration-testing-covering-tracks/#gref
-
-## Concept
-## Within Windows
-## Forensic explanations
-
