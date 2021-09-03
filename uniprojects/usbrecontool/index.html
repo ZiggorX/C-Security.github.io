@@ -4,7 +4,7 @@ AEC
 |
 USB Recon Tool: 1st year project
 </title>
-<meta charset=utf-8><meta name=generator content="Hugo 0.87.0"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset=utf-8><meta name=generator content="Hugo 0.88.0"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name=description content="
       Vmricdb sw se gzqd, azozc fm mgxzp addkrcgjdvz.
 
@@ -197,7 +197,7 @@ can be used to pull up system info. Alot of the time this doesnt even need admin
 <blockquote>
 <p>The terminal below shows an example of running the &lsquo;systeminfo&rsquo; command.</p>
 </blockquote>
-<pre><code class=language-term data-lang=term>C:\Users\cueh&gt;systeminfo
+<pre tabindex=0><code class=language-term data-lang=term>C:\Users\cueh&gt;systeminfo
 
 Host Name:                 EH_7-2
 OS Name:                   Microsoft Windows 10 Pro Education
@@ -378,13 +378,13 @@ its fair share of known vulnerabilities but with fewer than ProFTPd and more tha
 is outweighed by its ability to scale efficiently, future proofing the project.</p>
 <h3 id=configuration>Configuration</h3>
 <h4 id=update_linux>Update_Linux</h4>
-<pre><code class=language-term data-lang=term>root@kali:~# sudo apt-get update &amp;&amp; sudo apt-get upgrade
+<pre tabindex=0><code class=language-term data-lang=term>root@kali:~# sudo apt-get update &amp;&amp; sudo apt-get upgrade
 </code></pre><blockquote>
 <p>Using this command will install available upgrades of all the packages installed on the system.</p>
 </blockquote>
 <h4 id=install_and_start_vsftpd>Install_and_Start_VSFTPD</h4>
 <p>Once you have got the upgrades, install VSFTPD, this is the FTP daemon we will use in this project.</p>
-<pre><code class=language-term data-lang=term>root@kali:~# sudo apt-get install vsftpd
+<pre tabindex=0><code class=language-term data-lang=term>root@kali:~# sudo apt-get install vsftpd
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
@@ -410,7 +410,7 @@ Processing triggers for systemd (244.3-1) ...
 <p>Install log for VSFTPD</p>
 </blockquote>
 <p>Now that we have installed the appropriate packages, we can begin to look at the service and configuration.</p>
-<pre><code class=language-term data-lang=term>root@kali:~# service vsftpd status
+<pre tabindex=0><code class=language-term data-lang=term>root@kali:~# service vsftpd status
 ● vsftpd.service - vsftpd FTP server
      Loaded: loaded (/lib/systemd/system/vsftpd.service; disabled; vendor preset: disabled)
      Active: inactive (dead)
@@ -418,7 +418,7 @@ Processing triggers for systemd (244.3-1) ...
 <p>This code &ldquo;service vsftpd status&rdquo;. As you can see, the server is inactive</p>
 </blockquote>
 <p>We can then turn the server on, and check the status again, so we know that it is done:</p>
-<pre><code class=language-term data-lang=term>root@kali:~# service vsftpd start
+<pre tabindex=0><code class=language-term data-lang=term>root@kali:~# service vsftpd start
 root@kali:~# service vsftpd status
 ● vsftpd.service - vsftpd FTP server
      Loaded: loaded (/lib/systemd/system/vsftpd.service; disabled; vendor preset: disabled)
@@ -438,7 +438,7 @@ Mar 01 07:07:51 kali systemd[1]: Started vsftpd FTP server
 <h4 id=configuring_vsftpd>Configuring_VSFTPD</h4>
 <p>Now we must begin to configure the server. We need to move into the /etc/ directory, this is where the
 configuration file is. We need to then use vim or nano to open the vsftpd.conf.</p>
-<pre><code class=language-term data-lang=term>root@kali:/etc# ls -la | grep vsftpd.conf 
+<pre tabindex=0><code class=language-term data-lang=term>root@kali:/etc# ls -la | grep vsftpd.conf 
 -rw-r--r--   1 root     root       5950 Feb 29 12:04 vsftpd.conf
 </code></pre><p>Once opened there are many settings we need to look at.</p>
 <p><a href=https://www.wikihow.com/Set-up-an-FTP-Server-in-Ubuntu-Linux>https://www.wikihow.com/Set-up-an-FTP-Server-in-Ubuntu-Linux</a></p>
@@ -462,7 +462,7 @@ Set executable perms with chmod +x</p>
 </blockquote>
 <p>We need this script to run constantly, our options are to either manually run the script on every boot or create a custom systemd service to run it on every boot.
 To create a new service we need a unit file to give the system information about it.</p>
-<pre><code class=language-unicode data-lang=unicode>[Unit]
+<pre tabindex=0><code class=language-unicode data-lang=unicode>[Unit]
 Description=A service to watch ftp destination folder.
 
 [Service]
@@ -476,7 +476,7 @@ WantedBy=multi-user.target
 Set perms with chmod 644</p>
 </blockquote>
 <p>Now we can interact with it as any other linux service.</p>
-<pre><code class=language-term data-lang=term>root@beaglebone:/home/debian# systemctl enable watch_ftp.service
+<pre tabindex=0><code class=language-term data-lang=term>root@beaglebone:/home/debian# systemctl enable watch_ftp.service
 root@beaglebone:/home/debian# systemctl start watch_ftp.service
 root@beaglebone:/home/debian# systemctl status watch_ftp.service
 ● watch_ftp.service
@@ -499,7 +499,7 @@ Mar 15 11:19:38 beaglebone bash[1547]: Watches established.
 <p>Enable allows the service to start on every boot.</p>
 </blockquote>
 <p>An FTP transfer is then initiated from the target machine and we check the status again.</p>
-<pre><code class=language-term data-lang=term>root@beaglebone:/home/debian# systemctl status watch_ftp.service
+<pre tabindex=0><code class=language-term data-lang=term>root@beaglebone:/home/debian# systemctl status watch_ftp.service
 ● watch_ftp.service
    Loaded: loaded (/etc/systemd/system/watch_ftp.service; disabled; vendor preset: enabled)
    Active: active (running) since Sun 2020-03-15 11:19:37 UTC; 17min ago
@@ -603,7 +603,7 @@ Command line log : Where is it? We are running commands</p>
 <p>Autorun.inf must be included within the the root directory of a volume in order to be viewed. It must be at the &ldquo;front&rdquo; of the USB/CD.</p>
 <p>We are going to be using this feature in order to run our scripts.
 Here is an implementation of it:</p>
-<pre><code class=language-term data-lang=term>[autorun]
+<pre tabindex=0><code class=language-term data-lang=term>[autorun]
 ;Open=info_gather.bat
 ShellExecute=info_gather.bat
 UseAutoPlay=1
