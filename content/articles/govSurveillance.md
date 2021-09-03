@@ -3,14 +3,11 @@ title: "Is Government Surveillance necessary for national security?"
 date: 2021-09-03T12:40:54+01:00
 draft: false
 ---
-
-# Government surveillance is necessary and spying on internet traffic and search history of citizens is in the interest of national security.
- 
 ## Contents
 
 - [Opening statement](#opening_statement)
 - [Arguement](#arguement)
-- [Closing statement](#Closing_statement)
+- [Closing statement](#closing_statement)
 - [References](#references)
 
 ---
@@ -21,7 +18,7 @@ National security is an important concept that applies to every individual in ou
 In this report I will discuss why I believe that government surveillance is a key aspect in the integrity and effectiveness of our national security by outlining the main issues and concerns, as well as current methodologies and laws used to uphold the safety of the general population. Finally, I will provide my analysis and what I think should be done in order to best suit the majority of the general population. 
 
 ---
-### Argument:
+### Arguement:
 
 Data protection is all about ensuring the safety and integrity of personal information against any type of unlawful alteration, loss or disclosure. The primary law that are in place in the UK are: Data Protection Act 2018 which is a supplementation of the General Data Protection Regulation (GDPA). (What is data protection, n.d)
 
